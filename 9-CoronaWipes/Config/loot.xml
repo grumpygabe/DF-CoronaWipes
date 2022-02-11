@@ -1,0 +1,31 @@
+<configs>
+
+
+	<insertAfter xpath="/lootcontainers/lootgroup/item[@name='resourceAcid']">
+		<item name="drinkBleach" prob="0.1"/>
+	</insertAfter>
+
+  <insertAfter xpath="/lootcontainers/lootgroup[@name='groupSupplyMedical_T1']/item[@name='DFsterileBandage']">
+		<item name="medicalCoronaWipe" count="2,8" prob="0.3"/>
+		<item name="drugIvermectin" count="1" prob="0.1"/>
+		<item name="drugHydroxychloroquine" count="1" prob="0.1"/>
+	</insertAfter>
+
+  <insertAfter xpath="/lootcontainers/lootgroup[@name='medicine']/item[@name='medicalFirstAidBandage']">
+    <item name="medicalCoronaWipe" count="2,8"/>
+		<item name="drugIvermectin" count="1" prob="0.2"/>
+		<item name="drugHydroxychloroquine" count="1" prob="0.1"/>
+  </insertAfter>
+
+
+  <insertAfter xpath="/lootcontainers/lootgroup[@name='groupMedicalCommon']/item[@name='medicalBandage']">
+    <item name="medicalCoronaWipe" count="1,4" prob="0.05"/>
+		<item name="drugIvermectin" count="1" prob="0.1"/>
+		<item name="drugHydroxychloroquine" count="1" prob="0.2"/>
+  </insertAfter>
+
+
+    <insertAfter xpath="/lootcontainers/lootgroup/item[@name='foodCanChili']">
+  		<item name="foodTwinkie" count="1" prob="0.05"/>
+    </insertAfter>
+</configs>

@@ -1,0 +1,134 @@
+<config>
+  <append xpath="/items">
+    <item name="medicalCoronaWipe">
+  	  <property name="CustomIcon" value="resourceCloth"/>
+      <property name="CustomIconTint" value="edc966"/>
+    	<property name="Extends" value="medicalBandage"/>
+    	<property name="Group" value="Science,Medical"/>
+    	<property name="EconomicValue" value="2"/>
+    	<property name="DisplayType" value="cureInfection"/>
+    	<property name="DescriptionKey" value="medicalCoronaWipeDesc"/>
+    	<property name="Stacknumber" value="50"/>
+
+      <effect_group tiered="false">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+    		<display_value name="dCureInfection" value=".01"/>
+    		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffInfectionAddCurePerc" operation="add" value="1"/>
+    		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInfectionAddCure"/>
+    	</effect_group>
+    </item>
+
+    <item name="drinkBleach">
+  	  <property name="CustomIcon" value="Bleach"/>
+    	<property name="DescriptionKey" value="drinkBleachDesc"/>
+    	<property name="Tags" value="medical"/>
+    	<property name="HoldType" value="31"/>
+    	<property name="DisplayType" value="cureInfection"/>
+    	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+    	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+    	<property name="Material" value="Morganic"/>
+    	<property name="EconomicValue" value="5"/>
+    	<property name="Stacknumber" value="5"/> <!-- STK food -->
+    	<property name="Group" value="Science,CFChemicals,Medical"/>
+    	<property class="Action0">
+    		<property name="Class" value="Eat"/>
+    		<property name="Delay" value="1.0"/>
+    		<property name="Use_time" value="..."/>
+    		<property name="Sound_start" value="player_drinking"/>
+    		<property name="Create_item" value="drinkJarEmpty"/>
+    		<requirement name="NotHasBuff" buff="buffDrankBleach"/>
+    	</property>
+    	<effect_group tiered="false">
+    		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="set" value="0"/>
+
+    		<display_value name="dCureInfection" value="1"/>
+    		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffInfectionAddCurePerc" operation="add" value="100"/>
+    		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInfectionAddCure"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrankBleach"/>
+    	</effect_group>
+    </item>
+
+    <item name="drugIvermectin">
+    	<property name="Tags" value="medical"/>
+    	<property name="DisplayType" value="cureInfection"/>
+    	<property name="HoldType" value="16"/>
+    	<property name="Meshfile" value="#Other/Items?Health/painkillersPrefab.prefab"/>
+    	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+    	<property name="CustomIcon" value="Ivermectin"/>
+    	<property name="DescriptionKey" value="drugIvermectinDesc"/>
+    	<property name="Material" value="Morganic"/>
+    	<property name="EconomicValue" value="80"/>
+    	<property name="Stacknumber" value="10"/> <!-- STK loot -->
+    	<property name="Group" value="Science,CFChemicals,Medical"/>
+    	<property class="Action0">
+    		<property name="Class" value="Eat"/>
+    		<property name="Delay" value="1.0"/>
+    		<property name="Use_time" value="..."/>
+    		<property name="Sound_start" value="player_painkillers"/>
+    		<requirement name="NotHasBuff" buff="buffDeworming"/>
+    	</property>
+    	<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDeworming"/>
+    	</effect_group>
+      <effect_group tiered="false">
+        <requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
+    		<display_value name="dCureInfection" value=".10"/>
+    		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffInfectionAddCurePerc" operation="add" value="10"/>
+    		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInfectionAddCure"/>
+      </effect_group>
+    </item>
+
+
+    <item name="drugHydroxychloroquine">
+    	<property name="Tags" value="medical"/>
+    	<property name="DisplayType" value="cureInfection"/>
+    	<property name="HoldType" value="16"/>
+    	<property name="Meshfile" value="#Other/Items?Health/painkillersPrefab.prefab"/>
+    	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+    	<property name="CustomIcon" value="Hydroxychloroquine"/>
+    	<property name="DescriptionKey" value="drugHydroxychloroquineDesc"/>
+    	<property name="Material" value="Morganic"/>
+    	<property name="EconomicValue" value="80"/>
+    	<property name="Stacknumber" value="10"/> <!-- STK loot -->
+    	<property name="Group" value="Science,CFChemicals,Medical"/>
+    	<property class="Action0">
+    		<property name="Class" value="Eat"/>
+    		<property name="Delay" value="1.0"/>
+    		<property name="Use_time" value="..."/>
+    		<property name="Sound_start" value="player_painkillers"/>
+    		<requirement name="NotHasBuff" buff="buffDrugHydroxychloroquine"/>
+    	</property>
+    	<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugHydroxychloroquine"/>
+    	</effect_group>
+      <effect_group tiered="false">
+        <requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+    		<display_value name="dCureInfection" value=".10"/>
+    		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffInfectionAddCurePerc" operation="add" value="10"/>
+    		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInfectionAddCure"/>
+      </effect_group>
+    </item>
+
+    <item name="foodTwinkie">
+  			<property name="Extends" value="foodCornOnTheCob"/>
+      	<property name="DescriptionKey" value="foodTwinkieDesc"/>
+  			<property name="DisplayType" value="food"/>
+  			<property name="EconomicValue" value="1000"/>
+      	<property name="CustomIcon" value="Twinkie"/>
+  			<effect_group tiered="false">
+  				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyStats" stat="Food" operation="add" value="5"/>
+  				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyStats" stat="Health" operation="add" value="5"/>
+
+  				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffWellnessFive">
+  					<requirement name="NotHasBuff" buff="buffWellnessFive"/>
+  				</triggered_effect>
+
+  				<display_value name="dWellness" value="1"/> <!-- large wellness -->
+  				<display_value name="dFoodAmount" value="1"/>
+  				<display_value name="dFoodHealthAmount" value="1"/>
+      		<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffNearDeathTrauma"/>
+  			</effect_group>
+  		</item>
+
+  </append>
+</config>

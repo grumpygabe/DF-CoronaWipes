@@ -1,0 +1,79 @@
+<config>
+  <append xpath="/buffs">
+    <buff name="buffDrankBleach" name_key="buffDrankBleachName" description_key="buffDrankBleachDesc" tooltip_key="buffDrankBleachTooltip" icon="ui_game_symbol_skull" icon_color="255,0,0" icon_blink="true">
+      <damage_type value="Disease"/>
+			<stack_type value="ignore"/>
+			<duration value="30"/>
+			<update_rate value="2"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyStats" stat="water" operation="subtract" value="50"/>
+				<passive_effect name="WalkSpeed" operation="perc_add" duration="0,4" value="-.9,-.7"/>
+				<passive_effect name="RunSpeed" operation="perc_add" duration="0,4" value="-.9,-.7"/>
+				<passive_effect name="CrouchSpeed" operation="perc_add" duration="0,4" value="-.9,-.7"/>
+
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$foodAmountAdd" operation="set" value="0"/>
+
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="0.4" fade=".8" effect_name="Drunk"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyScreenEffect" intensity="0.4" fade=".8" effect_name="Drunk"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" effect_name="Drunk"/>
+
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="player#vomit" play_in_head="true"/>
+
+
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="10"/>
+
+  			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="water" operation="add" value="-20"/>
+  			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Food" operation="add" value="-10"/>
+        <triggered_effect trigger="onSelfDied" action="RemoveBuff" buff="buffDrankBleach"/>
+      </effect_group>
+    </buff>
+
+    <buff name="buffDeworming" name_key="buffDewormingName" description_key="buffDewormingDesc" tooltip_key="buffDewormingTooltip" icon="ui_game_symbol_dysentery" icon_color="133,97,34" icon_blink="false">
+      <damage_type value="Disease"/>
+      <stack_type value="ignore"/>
+      <duration value="300"/>
+      <update_rate value="5"/>
+      <effect_group>
+
+
+  			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="water" operation="add" value="-3"/>
+  			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Food" operation="add" value="-1.5"/>
+
+        <triggered_effect trigger="onSelfDied" action="RemoveBuff" buff="buffDeworming"/>
+      </effect_group>
+    </buff>
+
+    <buff name="buffDrugHydroxychloroquine" name_key="buffDrugHydroxychloroquineName" description_key="buffDrugHydroxychloroquineDesc" tooltip_key="buffDrugHydroxychloroquineTooltip" icon="ui_game_symbol_thirst" icon_color="255, 54, 54" icon_blink="false">
+      <damage_type value="Disease"/>
+      <stack_type value="duration"/>
+      <duration value="300"/>
+      <update_rate value="10"/>
+      <effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyStats" stat="water" operation="subtract" value="50"/>
+				<passive_effect name="WalkSpeed" operation="perc_add" duration="0,4" value="-.9,-.7"/>
+				<passive_effect name="RunSpeed" operation="perc_add" duration="0,4" value="-.9,-.7"/>
+				<passive_effect name="CrouchSpeed" operation="perc_add" duration="0,4" value="-.9,-.7"/>
+
+
+
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="0.4" fade=".8" effect_name="Drunk"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyScreenEffect" intensity="0" fade=".8" effect_name="Drunk"/>
+          <requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="GTE" value="50"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" effect_name="Drunk"/>
+
+
+
+
+        <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="player#vomit" play_in_head="true"/>
+        <triggered_effect trigger="onSelfDied" action="RemoveBuff" buff="buffDrugHydroxychloroquine"/>
+      </effect_group>
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="ModifyScreenEffect" intensity="0.4" fade=".8" effect_name="Drunk"/>
+          <requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="33"/>
+        <triggered_effect trigger="onSelfBuffUpdate" action="PlaySound" sound="player#vomit" play_in_head="true"/>
+          <requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="33"/>
+      </effect_group>
+
+    </buff>
+  </append>
+</config>

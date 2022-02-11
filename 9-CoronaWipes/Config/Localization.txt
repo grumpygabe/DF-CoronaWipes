@@ -1,0 +1,23 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+buffDrankBleach,,type,,,Drank Bleach
+buffDrankBleachName,,type,,,Drank Bleach
+buffDrankBleachDesc,,type,,,"May induce vomiting and death."
+buffDrankBleachTooltip,,type,,,"That bad, huh?"
+buffDeworming,,type,,,Ivermectin Side Effects
+buffDewormingName,,type,,,Ivermectin Side Effects
+buffDewormingDesc,,type,,,"Suffering from deworming.  What did you expect?"
+buffDewormingTooltip,,type,,,"Well, this is unpleasant."
+buffDrugHydroxychloroquine,,type,,,Hydroxychloroquine Side Effects
+buffDrugHydroxychloroquineName,,type,,,Hydroxychloroquine Side Effects
+buffDrugHydroxychloroquineDesc,,type,,,"Suffering from dizziness and nausea.  I hope it was worth it."
+buffDrugHydroxychloroquineTooltip,,type,,,"Well, this is unpleasant."
+medicalCoronaWipe,,type,,,CoronaWipes
+medicalCoronaWipeDesc,,type,,,"These handy disinfecting wipes are guranteed to work every time, at least some of the time."
+drinkBleach,,drug,,,Bleach
+drinkBleachDesc,,drug,,,"Don't drink this."
+drugIvermectin,,drug,,,Ivermectin
+drugIvermectinDesc,,drug,,,"This is a horse dewormer, but some people believe it may also help cure certain infections.  Side effects include deworming, idiot."
+drugHydroxychloroquine,,drug,,,Hydroxychloroquine
+drugHydroxychloroquineDesc,,drug,,,"This drug is used to treat malaria, but some people believe it may also help cure certain infections.  Side effects may include dizziness and nausea."
+foodTwinkie,,food,,,Twinkie
+foodTwinkieDesc,,food,,,"Some day very soon, life's little Twinkie gauge is going to go empty."

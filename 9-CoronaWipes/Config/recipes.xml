@@ -1,0 +1,8 @@
+<config>
+  <append xpath="/recipes">
+    <recipe name="medicalCoronaWipe" count="10">
+      <ingredient name="resourceCloth" count="10"/>
+      <ingredient name="drinkJarBeer" count="1"/>
+    </recipe>
+  </append>
+</config>
