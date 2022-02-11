@@ -10,4 +10,4 @@ Among other things, this mod adds the titular CoronaWipes.  They're terrible.  A
 The very best thing this mod also adds are Twinkies.  They're a fairly rare in the apocalypse, but a luxury when you can find one.  Rumor is they can be a bit of a pick-me-up after a truly harrowing experience. 
 
 # Installation
-It's easy. Drop the 9-CoronaWipes mod in your mods folder.
+It's easy. Drop the 9-CoronaWipes folder into in your mods folder.
